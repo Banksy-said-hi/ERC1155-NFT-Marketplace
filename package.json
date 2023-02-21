@@ -1,0 +1,52 @@
+{
+  "name": "media_marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.11",
+    "@heroicons/react": "^2.0.13",
+    "@moralisweb3/common-evm-utils": "^2.14.1",
+    "@moralisweb3/next": "^2.14.1",
+    "@openzeppelin/contracts": "^4.8.0",
+    "@rainbow-me/rainbowkit": "^0.8.0",
+    "@web3-react/ledger-connector": "^6.1.9",
+    "@web3modal/ethereum": "^2.0.0-beta.7",
+    "@web3modal/react": "^2.0.0-beta.7",
+    "alchemy-sdk": "^2.4.1",
+    "axios": "^1.1.3",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "flowbite": "^1.5.5",
+    "flowbite-react": "^0.3.7",
+    "hardhat": "^2.12.2",
+    "heroicons": "^2.0.13",
+    "ipfs-http-client": "^50.1.2",
+    "mocha": "^10.2.0",
+    "moralis": "^2.14.1",
+    "next": "^13.0.3",
+    "next-auth": "^4.19.2",
+    "nft.storage": "^7.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "use-debounce": "^9.0.2",
+    "wagmi": "^0.8.10",
+    "web3modal": "^1.9.9"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.4",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "autoprefixer": "^10.4.13",
+    "ethers": "^5.7.2",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
+  }
+}
