@@ -34,8 +34,8 @@ const MyNFTs = () => {
           address,
           chain,
       });
+      console.log(response?.result)
       console.log(`All nfts: ${response?.result.length}`);
-      // console.log(response?.result)
 
       const array = response.result.filter((nft) => checkNft(nft))
       console.log(`NFTs in collection: ${array.length}`);
@@ -55,11 +55,14 @@ const MyNFTs = () => {
   
     return (
       <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
-        { nfts && nfts.map((nft, index) => {
+        { nfts ?
+        nfts.map((nft, index) => {
               return (
                 <NFTCard nft={nft} key={index}></NFTCard>
               )
           })
+        :
+        <h1>No NFTs found</h1>
         }
       </div>
 
