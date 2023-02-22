@@ -30,11 +30,11 @@ export const NFTCard = ({nft}) => {
         onSuccess(data) {
             console.log('Success', data)
         },
-        onSettled() {
-            setTimeout(() => {
-                router.push("/")
-            }, 15000)  
-        }
+        // onSettled() {
+        //     setTimeout(() => {
+        //         router.push("/")
+        //     }, 15000)  
+        // }
     })
 
     const { isLoading, isSuccess } = useWaitForTransaction({hash: data?.hash});
