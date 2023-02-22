@@ -11,7 +11,7 @@ import Marketplace from "../utils/Marketplace.json";
 export const NFTCard = ({nft}) => {
 
     const [listingPrice, setListingPrice] = useState(null)
-    console.log(nft)
+    console.log(`Working on the NFT: \n ${nft}`)
     const router = useRouter();
 
     const { config } = usePrepareContractWrite({
@@ -30,15 +30,14 @@ export const NFTCard = ({nft}) => {
         onSuccess(data) {
             console.log('Success', data)
         },
-        // onSettled() {
-        //     setTimeout(() => {
-        //         router.push("/")
-        //     }, 15000)  
-        // }
+        onSettled() {
+            setTimeout(() => {
+                router.push("/")
+            }, 15000)  
+        }
     })
 
     const { isLoading, isSuccess } = useWaitForTransaction({hash: data?.hash});
-
 
     return (        
             <div className="w-1/5 flex flex-col py-2">
@@ -58,16 +57,16 @@ export const NFTCard = ({nft}) => {
                             <p className="text-xs">{nft.metadata?.properties.Artist}</p>
                         </div>
                         <div className="flex-grow">
-                            <p className="text-gray-600 text-xs">{nft.metadata?.description.substr(0, 150)}</p>
+                            <p className="text-gray-600 text-xs">{nft.metadata?.description}</p>
                         </div>
                     </div>
 
                     <div className="w-full text-center"> 
                         {
-                            router.pathname == "/my-nfts" &&  
+                            router.pathname == "/my-nfts" &&
                             <div className='flex'>
                                 <button type="submit" onClick={write} className="w-1/3 text-white rounded-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">List</button>
-                                <input type="number" onChange={e => setListingPrice(e.target.value)} className="w-2/3 text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-sm" placeholder="Price in Matic" required/>
+                                <input type="number" onChange={e => setListingPrice(e.target.value)} className="w-2/3 text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-sm" placeholder="Price in Matic"></input>
                             </div>
                         }
                             {/* <button className="py-2 w-full text-white bg-blue-500">Buy</button>

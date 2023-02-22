@@ -6,7 +6,6 @@ import { f_nftaddress_mumbai, marketplace_mumbai } from "../config";
 import { NFTCard } from "../components/nftCard";
 import Moralis  from 'moralis';
 import { EvmChain } from '@moralisweb3/common-evm-utils';
-import MyModal from './test';
 
 
 
@@ -55,17 +54,18 @@ const MyNFTs = () => {
   
     return (
       <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
-        { nfts ?
+        {nfts ?
         nfts.map((nft, index) => {
-              return (
-                <NFTCard nft={nft} key={index}></NFTCard>
-              )
-          })
+          return (
+            <NFTCard nft={nft} key={index}></NFTCard>
+          )
+        })
         :
-        <h1>No NFTs found</h1>
+        <div>
+          <h1>Loading NFTs</h1>
+        </div>
         }
       </div>
-
     )
 } 
 

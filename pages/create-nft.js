@@ -190,7 +190,6 @@ export default function CreateNFT () {
                 <h2>You will be directed to My NFTs page</h2>
             </div>
             }
-            { !isSuccess & !isLoading &&
             <div className="flex">
                 <div className="flex flex-col ml-10 my-10 w-2/5">
                     <div hidden={tokenUrl}>
@@ -512,9 +511,7 @@ export default function CreateNFT () {
                     </label>
                     }
                 </div> 
-
             </div>
-            }
         </div>
     )
 }
