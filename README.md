@@ -27,6 +27,9 @@ Things to think about !!!!
 - You'll need this **https://headlessui.com/react/dialog**
 
 _ Also **MaterialUI**
+
+- While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message ) 
+
 ************************************************
 
 Questions ???? 
