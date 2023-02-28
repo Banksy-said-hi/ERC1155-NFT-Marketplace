@@ -3,7 +3,6 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-// import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
 contract Marketplace is ReentrancyGuard {
@@ -15,7 +14,14 @@ contract Marketplace is ReentrancyGuard {
     mapping(uint256 => MarketItem) private idToMarketItem; // Starts from one [1]
 
     // Sina Design
-    mapping(address => mapping(uint => uint)) public pricePerToken; // contract address => token ID => price
+    mapping(address => mapping(uint => uint)) public pricePerTokenId; // contract address => token ID => price
+
+    function priceGetter(
+        address _contract,
+        uint _tokenId
+    ) public view returns (uint) {
+        return pricePerTokenId[_contract][_tokenId];
+    }
 
     struct MarketItem {
         uint256 itemId; // Starts from one 1
@@ -89,7 +95,7 @@ contract Marketplace is ReentrancyGuard {
         );
 
         // Sine Design
-        pricePerToken[_nftContract][_tokenId] = _price
+        pricePerTokenId[_nftContract][_tokenId] = _price;
     }
 
     function createMarketSale(
@@ -118,7 +124,7 @@ contract Marketplace is ReentrancyGuard {
         itemsSold.increment();
 
         // Sina Design
-        pricePerToken[_nftContract][_tokenId] = null
+        pricePerTokenId[_nftContract][tokenId] = 0;
     }
 
     function fetchMarketItems() public view returns (MarketItem[] memory) {

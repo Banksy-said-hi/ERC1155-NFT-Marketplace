@@ -1,19 +1,45 @@
 import { useRouter } from 'next/router';
-import { useContractWrite, usePrepareContractWrite, useContractRead, useWaitForTransaction } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite, useContractRead, useWaitForTransaction, useAccount } from 'wagmi'
 import React from 'react'
 import { useState } from "react";
+import { ethers } from "ethers";
 
 import { f_nftaddress_polygon, f_nftaddress_mumbai, marketplace_mumbai } from "../config";
 import Marketplace from "../utils/Marketplace.json";
 
 
 
+
 export const NFTCard = ({nft}) => {
 
-    const [listingPrice, setListingPrice] = useState(null)
-    console.log(`Working on the NFT: \n ${nft}`)
+    const { address, isConnected } = useAccount();
+    const [ listingPrice, setListingPrice ] = useState(null)
+    const [ price, setPrice ] = useState(null)
+
     const router = useRouter();
 
+
+    
+    // Fetching price of tokens based on their token ids and mother contract address
+    // This hooks read data from the marketplace contract 
+    useContractRead({
+        address: marketplace_mumbai,
+        abi: Marketplace.abi,
+        functionName: 'priceGetter',
+        args: [f_nftaddress_mumbai, nft.tokenId],
+        onSuccess(data) {
+            console.log(`price of token id ${nft.tokenId} is => ${data.toNumber()}`)
+            setPrice(data.toNumber());
+        },
+        onError(error) {
+            console.log('Error', error)
+        }
+    })
+
+
+
+    // Listing tokens ( Listing )
+    // -----------------------------------------
     const { config } = usePrepareContractWrite({
         address: marketplace_mumbai,
         abi: Marketplace.abi,
@@ -21,7 +47,6 @@ export const NFTCard = ({nft}) => {
         args: [f_nftaddress_mumbai, nft.tokenId, nft.amount, listingPrice],
     })
 
-  
     const { data, write } = useContractWrite({
         ...config, 
         onError(error) {
@@ -38,6 +63,43 @@ export const NFTCard = ({nft}) => {
     })
 
     const { isLoading, isSuccess } = useWaitForTransaction({hash: data?.hash});
+    //
+    // -----------------------------------------
+
+
+
+    // Buying tokens ( Buying )
+    // -----------------------------------------
+    const { configBuy } = usePrepareContractWrite({
+        address: marketplace_mumbai,
+        abi: Marketplace.abi,
+        functionName: 'createMarketSale',
+        args: [f_nftaddress_mumbai, nft.tokenId],
+        overrides: {
+            from: address,
+            value: price?.toString(),
+        },
+    })
+
+    const { dataBuy, writeBuy } = useContractWrite({
+        ...configBuy, 
+        onError(error) {
+            console.log('Error', error)
+        },
+        onSuccess(data) {
+            console.log('Success', data)
+        },
+        onSettled() {
+            setTimeout(() => {
+                router.push("/my-nfts")
+            }, 15000)  
+        }
+    })
+
+    const { isLoadingBuy, isSuccessBuy } = useWaitForTransaction({hash: data?.hash});
+    //
+    // -----------------------------------------
+
 
     return (        
             <div className="w-1/5 flex flex-col py-2">
@@ -45,12 +107,18 @@ export const NFTCard = ({nft}) => {
                     <img className="object-cover h-110 rounded-t-md" src={nft.metadata?.image}></img>
                 </div>
 
+                {!price == 0 &&
+                <div className='text-center bg-red-600'>
+                    <p className='text-white'>For Sale</p>
+                </div>
+                }
+
                 <div>
                     <div className="flex flex-col y-gap-2 px-2 py-1.5 bg-slate-100 h-110">
                         <div className="flex items-center pb-1">
                             <h2 className="text-sm text-gray-800"><b>{nft.metadata?.name}</b></h2>
                             {
-                                nft.amount && <p className="text-sm text-white bg-teal-300 border border-teal-300 px-2 rounded-md ml-auto">{nft.amount}</p>
+                                nft.amount && <p className="text-md text-white bg-teal-300 border border-teal-300 px-2 rounded-md ml-auto">{nft.amount}</p>
                             }
                         </div>
                         <div>
@@ -61,6 +129,23 @@ export const NFTCard = ({nft}) => {
                         </div>
                     </div>
 
+
+                    
+                    {router.pathname == "/" ?
+                    <div className="w-full flex">
+                        {isLoadingBuy && 
+                        <p>Buying...</p>
+                        }
+                        {isSuccessBuy && 
+                        <p>Still working...</p>
+                        }
+                        <button onClick={writeBuy} disabled={!writeBuy} className="w-1/3 text-center text-white rounded-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-md px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy</button>
+                        <div className='w-2/3 flex items-center justify-center align-px-7 bg-blue-400 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-sm'>
+                            <p className='text-lg text-white font-semibold pr-1'>{price}</p>
+                            <p className='text-xs'>Matic</p>
+                        </div>
+                    </div>
+                    :
                     <div className="w-full text-center">
                         {isLoading && 
                         <p>Listing your NFT...</p>
@@ -68,20 +153,15 @@ export const NFTCard = ({nft}) => {
                         {isSuccess && 
                         <p>Still working...</p>
                         }
-                        
                         <div className='flex'>
-                            <button type="submit" onClick={write} className="w-1/3 text-white rounded-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">List</button>
+                            <button type="submit" onClick={write} disabled={!write} className="w-1/3 text-white rounded-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">List</button>
                             <input type="number" onChange={e => setListingPrice(e.target.value)} className="w-2/3 text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-sm" placeholder="Price in Matic"></input>
                         </div>
-                            {/* <button className="py-2 w-full text-white bg-blue-500">Buy</button>
-                            :
-                            router.pathname == "/my-nfts" & isLoading ?
-                            <div className='bg-blue-700 text-white w-full text-md text-center py-2.5'><p>Please wait...</p></div>
-                            :
-                            router.pathname == "/my-nfts" & isSuccess ?
-                            <div className='bg-blue-700 text-white w-full text-md text-center py-2.5'><p>Success! Wait again please</p></div>
-                            : */}
                     </div>
+                    }
+
+
+
 
                     <div className="flex w-full">
                         <a className="w-1/2 text-xs bg-teal-300 rounded-b-md text-center inline-flex items-center px-6 py-2 hover:bg-teal-400" target={"_blank"} href={nft.tokenUri}>

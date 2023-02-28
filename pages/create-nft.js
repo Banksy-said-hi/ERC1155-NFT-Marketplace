@@ -44,8 +44,6 @@ export default function CreateNFT () {
     const [ imageUrl, setImageUrl ] = useState(null);
     const [ tokenUrl, setTokenUrl ] = useState(null);
 
-    const [ hintMessage, setHintMessage ] = useState("CONNECT YOUR WALLET AND UPLOAD THE IMAGE");
-
     const debouncedQuantity = useDebounce(quantity)
 
     const router = useRouter();
@@ -78,7 +76,6 @@ export default function CreateNFT () {
 
 
     async function onChange(e) {
-        setHintMessage("PLEASE WAIT! UPLOADING THE IMAGE...")
         console.log("Uploading the image to IPFS...")
         const file = e.target.files[0];
         try {
@@ -86,21 +83,15 @@ export default function CreateNFT () {
                 progress: (prog) => console.log(`received: ${prog}`)
             })
             const url = `https://infura-ipfs.io/ipfs/${added.path}`
-
             console.log(`Image's URL: \n\n ${url}`);
 
             setImageUrl(url);
-            setHintMessage("IMAGE SUCCESSFULLY UPLOADED :)")
-
-            setTimeout(() => {setHintMessage("FILL OUT THE FORM AND CREATE METADATA")}, 3000);
         } catch (e) {
-            console.log(e);
-            setHintMessage("AN ERROR HAPPENED :( CHECK THE CONSOLE")
+            console.log("Error Happened: \n\n", e);
         }
     }
 
     async function createMetadata() {
-        setHintMessage("CREATING METADATA...");
         let metadata;
         // These if statements should be summarized
         if (field.name == "Painting") {
@@ -145,22 +136,17 @@ export default function CreateNFT () {
             })
         }
         console.log(`Metadata created: \n\n ${metadata}`);
-        setHintMessage("METADATA CREATED");
         upload(metadata)
     }   
 
     async function upload(metadata) {
         try {
-            setHintMessage("TRYING TO UPLOAD METADATA TO IPFS")
             const added = await client.add(metadata);
             const url = `https://infura-ipfs.io/ipfs/${added.path}`;
             setTokenUrl(url);
-            setHintMessage("METADATA IS UPLOADED ON IPFS")
             console.log(`Token URL: \n\n ${url}`);
-            setTimeout(() => {setHintMessage("ENTER THE AMOUNT AND MINT")}, 3000);
         } catch (error) {
-            console.log("Error happened: ", error);
-            setHintMessage("AN ERROR HAPPENED! CHECK CONSOLE")
+            console.log("Error happened: \n\n", error);
         }
     }
 
@@ -168,11 +154,9 @@ export default function CreateNFT () {
     async function mint() {
         try {
             console.log("Minting...")
-            setHintMessage("MINTING...");
             write?.()
         } catch (error) {
-            setHintMessage("AN ERROR HAPPENED! CHECK CONSOLE FOR MORE INFO")
-            console.log(error);
+            console.log("ERROR HAPPENED: \n\n:", error);
         }
     }
 
