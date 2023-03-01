@@ -18,7 +18,7 @@ Things to think about !!!!
 
 - You have enabled experimental feature (appDir) in next.config.js. **What is this statement?** resolve it
 
-- 25 hours until Feb 9th + 5 hours Feb 9th + 6 hours Feb 13th
+- subphase 3 ( buying ) 6 hours March 1st
 
 - Put external variables (drop down values) in another file, Implement alphebatic order on drop down
 
