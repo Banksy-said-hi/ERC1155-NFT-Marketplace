@@ -28,7 +28,9 @@ Things to think about !!!!
 
 _ Also **MaterialUI**
 
-- While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message ) 
+- **While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message )**
+
+- **Decimals cannot be entered within the listing price input**
 
 ************************************************
 
@@ -38,13 +40,10 @@ Questions ????
 - **What is JSX**? Why we use this ending in some of our file names?
 - What is http, https request?
 - **What useDebounce( ) does on our script?**
-- What is SDK?
 - difference between let, const, var in JS
-- What is RPC Endpoint? What is api?
 - What is the nonce of the accounts? It must be related to the transactions made by single account
 - Difference between import, require, fs.readfilesync? Why using brackets for importing?
 - What is bytes32? What are its usecases?
-- What is a provider? use case of different providers? ethers.providers.jsonrpcprovider( ) or ethers.providers.web3provder( ) or ...
 - parseUnit( ) and fotmatUnit( ) definition and usecase?
 - How to read data from solidity emitted events?
 - Why the provided value for a solidity transaction in JS should be string? READ MORE ABOUT ETHERS.JS TRANSACTIONS
