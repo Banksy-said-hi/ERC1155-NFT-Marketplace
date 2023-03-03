@@ -24,9 +24,7 @@ Things to think about !!!!
 
 - **Add wallet connect warning to _App.js** to ask users to connect wallets at the start
 
-- You'll need this **https://headlessui.com/react/dialog**
-
-_ Also **MaterialUI**
+- You'll need this **https://headlessui.com/react/dialog**, **MaterialUI**
 
 - **While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message )**
 
