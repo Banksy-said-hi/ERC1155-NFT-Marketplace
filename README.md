@@ -35,7 +35,6 @@ Things to think about !!!!
 Questions ???? 
 
 - **Absolute** and **Relative** keyword of the CSS in Tailwindcss?
-- What **event.preventDefault** actually does?
 - What is **callback** in JS? What is **promise** in JS?
 - Dive deep into **useContext** 
 - **What is JSX**? Why we use this ending in some of our file names?
