@@ -35,6 +35,7 @@ Things to think about !!!!
 Questions ???? 
 
 - **Absolute** and **Relative** keyword of the CSS in Tailwindcss?
+- What is **callback** in JS? What is **promise** in JS?
 - **What is JSX**? Why we use this ending in some of our file names?
 - What is http, https request?
 - **What useDebounce( ) does on our script?**
@@ -45,4 +46,5 @@ Questions ????
 - parseUnit( ) and fotmatUnit( ) definition and usecase?
 - How to read data from solidity emitted events?
 - Why the provided value for a solidity transaction in JS should be string? READ MORE ABOUT ETHERS.JS TRANSACTIONS
-- What is callback in Javascript? What is promise in JS?
+
+
