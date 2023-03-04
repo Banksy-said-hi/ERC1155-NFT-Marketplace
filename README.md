@@ -38,7 +38,6 @@ Questions ????
 - What is **callback** in JS? What is **promise** in JS?
 - Dive deep into **useContext** 
 - **What is JSX**? Why we use this ending in some of our file names?
-- What is http, https request?
 - **What useDebounce( ) does on our script?**
 - difference between let, const, var in JS
 - What is the nonce of the accounts? It must be related to the transactions made by single account
