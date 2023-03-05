@@ -37,12 +37,16 @@ Subphase needs:
 - Can we operate transactions with a stablecoin?
 
 ************************************************
+R&D questions:
+- (1) What if we want to provide our own token ( Maleki Token ) for the whole ecosystem, what are the drawbacks and advantages?
+- (2) Can we integrate RamzRial into our project? Does RamzRial work with Polygon?
 
-Questions ???? 
 
-- **Absolute** and **Relative** keyword of the CSS in Tailwindcss?
+
+************************************************
+Technichal Questions ???? 
+
 - **GIT Crash course**
-- What is **callback** in JS? What is **promise** in JS?
 - Dive deep into **useContext** 
 - **What is JSX**? Why we use this ending in some of our file names?
 - **What useDebounce( ) does on our script?**
