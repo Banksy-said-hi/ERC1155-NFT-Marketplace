@@ -31,6 +31,11 @@ Things to think about !!!!
 - **Decimals cannot be entered within the listing price input**
 
 ************************************************
+Subphase needs:
+- Each token should be listed seperately, giving them different prices to be shown in the gallery
+- Each token number of a specific nft will have a unique identifier ( like token Id ), unique ROI, and unique price
+- 
+************************************************
 
 Questions ???? 
 
