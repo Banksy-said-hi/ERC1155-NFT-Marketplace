@@ -36,11 +36,16 @@ Subphase needs:
 - Each token number of a specific nft will have a unique identifier ( like token Id ), unique ROI, and unique price
 - Can we operate transactions with a stablecoin?
 
+
 ************************************************
 R&D questions:
 - (1) What if we want to provide our own token ( Maleki Token ) for the whole ecosystem, what are the drawbacks and advantages?
 - (2) Can we integrate RamzRial into our project? Does RamzRial work with Polygon?
 
+
+************************************************
+Auction phase:
+- We are going to add an auction feature for listing
 
 
 ************************************************
