@@ -65,7 +65,7 @@ Technichal Questions ????
 
 - **GIT Crash course**
 - Dive deep into **useContext** 
-- **What is JSX**? Why we use this ending in some of our file names?
+- What does **.jsx ending** means in files?
 - **What useDebounce( ) does on our script?**
 - What is the nonce of the accounts? It must be related to the transactions made by single account
 - Difference between import, require, fs.readfilesync? Why using brackets for importing?
