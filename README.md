@@ -31,6 +31,12 @@ Things to think about !!!!
 - **Decimals cannot be entered within the listing price input**
 
 ************************************************
+Essential needs of the projecet:
+- Tokens are burnable, the minter can take them back and burn them
+- ROI Smart contract; It should represents ROI and caluclate gains for holders based on the duration, and distribute the rewards later
+
+
+************************************************
 Listing Subphase needs:
 - Each token should be listed seperately, giving them different prices to be shown in the gallery
 - Each token number of a specific nft will have a unique identifier ( like token Id ), unique ROI, and unique price
