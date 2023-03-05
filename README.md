@@ -34,7 +34,8 @@ Things to think about !!!!
 Subphase needs:
 - Each token should be listed seperately, giving them different prices to be shown in the gallery
 - Each token number of a specific nft will have a unique identifier ( like token Id ), unique ROI, and unique price
-- 
+- Can we operate transactions with a stablecoin?
+
 ************************************************
 
 Questions ???? 
