@@ -36,11 +36,13 @@ Essential needs of the projecet:
 - ROI Smart contract; It should represents ROI and caluclate gains for holders based on the duration, and distribute the rewards later
 
 
+
 ************************************************
 Listing Subphase needs:
 - Each token should be listed seperately, giving them different prices to be shown in the gallery
+( **index.js** & **my-nfts.js** need to be changed, we can no longer use third partys for retrieving NFTs because we want tokens of a same token id have a different price and this cannot be achieved with the third party approach )
 - Each token number of a specific nft will have a unique identifier ( like token Id ), unique ROI, and unique price
-- Can we operate transactions with a stablecoin?
+
 
 
 ************************************************
@@ -49,15 +51,19 @@ Buying Supphase needs;
 - A table of the history of the NFT ownership transfers should be designed at the bottom of the page
 
 
+
 ************************************************
 R&D questions:
 - (1) What if we want to provide our own token ( Maleki Token ) for the whole ecosystem, what are the drawbacks and advantages?
 - (2) Can we integrate RamzRial into our project? Does RamzRial work with Polygon?
+- (3) Can we operate transactions with a stablecoin?
+
 
 
 ************************************************
 Auction phase:
 - We are going to add an auction feature for listing
+
 
 
 ************************************************
