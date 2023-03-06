@@ -64,7 +64,7 @@ Auction phase:
 Technichal Questions ???? 
 
 - **GIT Crash course**
-- Dive deep into **useContext**, and **useReducer**
+- Dive deep into **useContext**, and **useReducer**, **useRef**
 - What does **.jsx ending** means in files?
 - **What useDebounce( ) does on our script?**
 - What is the nonce of the accounts? It must be related to the transactions made by single account
