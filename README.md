@@ -76,9 +76,9 @@ Auction phase:
 Technichal Questions ???? 
 
 - **GIT Crash course**
-- Dive deep into **useContext**, and **useReducer**, **useRef**
-- What does **.jsx ending** means in files?
 - **What useDebounce( ) does on our script?**
+- Grasb the concepts of **useContext**, and **useReducer**
+- What does **.jsx ending** means in files?
 - What is the nonce of the accounts? It must be related to the transactions made by single account
 - Difference between import, require, fs.readfilesync? Why using brackets for importing?
 - What is bytes32? What are its usecases?
