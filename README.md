@@ -29,6 +29,12 @@ Things to think about !!!!
 - **While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message )**
 
 - **Decimals cannot be entered within the listing price input**
+************************************************
+**Priorities:
+- (1) Dedicated Gateway
+- (2) Tether based payments on Polygon
+- (3) ERC721 NFT creation and listing support
+- (4) Staking or a similiar solution for reward distribution**
 
 ************************************************
 Essential needs of the projecet:
