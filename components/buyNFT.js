@@ -51,15 +51,11 @@ const Buy = (props) => {
                 isLoading ? <p className="bg-blue-700 text-white text-center py-2.5">Buying this item...</p> :
                     isSuccess ? <p className="bg-blue-700 text-white text-center py-2.5">Still working...</p> :
                         <div>
-                            <div className='w-full flex items-center justify-center align-px-7 bg-teal-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-                                <p className='text-lg text-white font-semibold pr-1'>{props.price} Matic</p>
-                                {/* <p className='text-xs'>( each token )</p> */}
-                            </div>
-                            <div className="flex bg-teal-300 justify-center items-center">
-                                <input value={amount} type="range" min="1" max={props.totalAmount} onChange={(e) => setAmount(e.target.value)} className="w-full mx-1 my-1.5"></input>
-                            </div>
                             <button onClick={write} disabled={!write} className="w-full text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-md px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy {amount} tokens</button>
-                        </div> 
+                            <div className="flex bg-slate-100 justify-center items-center">
+                                <input value={amount} type="range" min="1" max={props.totalAmount} onChange={(e) => setAmount(e.target.value)} className="w-full mx-1 mt-3 mb-2"></input>
+                            </div>
+                        </div>
             }
         </div>
     )
