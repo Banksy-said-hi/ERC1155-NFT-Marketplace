@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
     setIsOpen(true)
   }
 
-
+  // Create a seperate file and component for alerting the user for connecting wallet 
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
@@ -72,8 +72,32 @@ function MyApp({ Component, pageProps }) {
           <p className="text-5xl text-white-40">Prototype</p>
           <div className="flex mt-5">
             <div className="grow flex">
-              <div> 
-                <Transition appear show={isOpen} as={Fragment}>
+              <Link href="/" className="mr-12 text-cyan-100 hover:text-blue-600">
+                Gallery
+              </Link>
+              <Link href="/create-nft" className="mr-12 text-cyan-100 hover:text-blue-600">
+                Create NFT
+              </Link>
+              <Link href="/my-nfts" className="mr-12 text-cyan-100 hover:text-blue-600">
+                My NFTs
+              </Link>
+              {/* <Link href="/test" className="mr-12 text-cyan-100 hover:text-blue-600">
+                test
+              </Link> */}
+            </div>
+            <ConnectButton className="grow-0" chainStatus="name" accountStatus="full" />
+          </div>
+        </nav>
+        <Component {...pageProps}/> 
+      </RainbowKitProvider>
+    </WagmiConfig>
+  );
+}
+
+export default MyApp
+
+
+                {/* <Transition appear show={isOpen} as={Fragment}>
                   <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child
                     as={Fragment}
@@ -98,12 +122,6 @@ function MyApp({ Component, pageProps }) {
                         leaveTo="opacity-0 scale-95"
                       >
                       <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 shadow-xl transition-all">
-                        {/* <Dialog.Title
-                          as="h3"
-                          className="text-lg font-medium leading-6 text-gray-900"
-                        >
-                          Hello 
-                        </Dialog.Title> */}
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
                             Before proceeding further, please connect your wallet
@@ -118,28 +136,4 @@ function MyApp({ Component, pageProps }) {
                   </div>
                 </div>
               </Dialog>
-            </Transition>
-          </div>
-              <Link href="/" className="mr-12 text-cyan-100 hover:text-blue-600">
-                Gallery
-              </Link>
-              <Link href="/create-nft" className="mr-12 text-cyan-100 hover:text-blue-600">
-                Create NFT
-              </Link>
-              <Link href="/my-nfts" className="mr-12 text-cyan-100 hover:text-blue-600">
-                My NFTs
-              </Link>
-              {/* <Link href="/test" className="mr-12 text-cyan-100 hover:text-blue-600">
-                test
-              </Link> */}
-            </div>
-            <ConnectButton className="grow-0" chainStatus="name" accountStatus="full" />
-          </div>
-        </nav>
-        <Component {...pageProps} /> 
-      </RainbowKitProvider>
-    </WagmiConfig>
-  );
-}
-
-export default MyApp
+            </Transition> */}

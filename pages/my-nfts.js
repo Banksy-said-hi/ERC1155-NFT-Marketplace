@@ -15,6 +15,7 @@ const MyNFTs = () => {
 
   const { address, isConnected } = useAccount();
   const [ nfts, setNfts ] = useState(null)
+  const [ loadingState, setLoadingState ] = useState("not-loaded");
 
   useEffect(() => {
     fetchNfts()
@@ -33,13 +34,15 @@ const MyNFTs = () => {
           address,
           chain,
       });
+      
+      console.log(`All minted nfts by the connected address: ${response?.result.length}`);
       console.log(response?.result)
-      console.log(`All nfts: ${response?.result.length}`);
 
       const array = response.result.filter((nft) => checkNft(nft))
       console.log(`NFTs in collection: ${array.length}`);
       console.log("Done")
       setNfts(array);
+      setLoadingState("loaded")
     } catch (e) {
       console.error(e);
     }  
@@ -51,22 +54,27 @@ const MyNFTs = () => {
     }
   }
 
+  if(loadingState === "loaded" && !nfts.length) return (
+    <div className='flex justify-center items-center'>
+      <h1 className='px-10 py-10 text-3xl'>You have no items</h1>
+    </div>
+  )
   
-    return (
-      <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
-        {nfts ?
-        nfts.map((nft, index) => {
-          return (
-            <NFTCard nft={nft} key={index}></NFTCard>
-          )
-        })
-        :
-        <div>
-          <h1>Loading NFTs</h1>
-        </div>
-        }
+  return (
+    <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
+      {nfts ?
+      nfts.map((nft, index) => {
+        return (
+          <NFTCard nft={nft} key={index}></NFTCard>
+        )
+      })
+      :
+      <div>
+        <h1>Loading NFTs</h1>
       </div>
-    )
+      }
+    </div>
+  )
 } 
 
 
