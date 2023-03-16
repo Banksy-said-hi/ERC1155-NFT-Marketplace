@@ -17,9 +17,13 @@ const MyNFTs = () => {
   const [ nfts, setNfts ] = useState(null)
   const [ loadingState, setLoadingState ] = useState("not-loaded");
 
+  let informingText = <h1>Loading</h1>
+
   useEffect(() => {
     fetchNfts()
-  }, [])
+  }, [isConnected])
+
+
 
   const fetchNfts = async () => {
     try {  
@@ -53,26 +57,51 @@ const MyNFTs = () => {
     }
   }
 
-  if(loadingState === "loaded" && !nfts.length) return (
-    <div className='flex justify-center items-center'>
-      <h1 className='px-10 py-10 text-3xl'>You have no items</h1>
-    </div>
-  )
+  // if(loadingState === "loaded" && !nfts.length) return (
+  //   <div className='flex justify-center items-center'>
+  //     <h1 className='px-10 py-10 text-3xl'>You have no items</h1>
+  //   </div>
+  // )
+
+  // if(!isConnected) return (
+
+  // )
   
   return (
-    <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
-      {nfts ?
-      nfts.map((nft, index) => {
-        return (
-          <NFTCard nft={nft} key={index}></NFTCard>
-        )
-      })
-      :
-      <div>
-        <h1>Loading NFTs</h1>
+    <div>
+      {
+      !isConnected ?
+      <div className='flex justify-center items-center'>
+        <h1 className='px-10 py-10 text-3xl'>Please connect your wallet</h1>
       </div>
+      :
+        nfts ?  
+        <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
+          {nfts.map((nft, index) => {
+            return (
+              <NFTCard nft={nft} key={index}></NFTCard>
+            )
+          })}
+        </div>
+        :
+        <div className='flex justify-center items-center'>
+          <h1 className='px-10 py-10 text-3xl'>Loading NFTs</h1>
+        </div>
       }
     </div>
+    // <div className="flex flex-wrap gap-y-6 my-10 w-full gap-x-8 justify-center">
+    //   {nfts ?
+    //   nfts.map((nft, index) => {
+    //     return (
+    //       <NFTCard nft={nft} key={index}></NFTCard>
+    //     )
+    //   })
+    //   :
+    //   <div>
+    //     <h1>Loading NFTs</h1>
+    //   </div>
+    //   }
+    // </div>
   )
 } 
 
