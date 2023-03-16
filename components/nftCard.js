@@ -48,7 +48,7 @@ export const NFTCard = ({nft}) => {
                 </div>
 
                 {router.pathname == "/" ?
-                <Buy nft={nft} price={price}></Buy>
+                <Buy nft={nft} price={price} totalAmount={nft.amount}></Buy>
                 :
                 <List nft={nft}></List>
                 }

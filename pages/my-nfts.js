@@ -34,7 +34,6 @@ const MyNFTs = () => {
           address,
           chain,
       });
-      
       console.log(`All minted nfts by the connected address: ${response?.result.length}`);
       console.log(response?.result)
 
