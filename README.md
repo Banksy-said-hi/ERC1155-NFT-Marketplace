@@ -29,6 +29,9 @@ Things to think about !!!!
 - **While the nft is getting minted, the position of the photo is not proper ( somewhere below the transaction state message )**
 
 - **Decimals cannot be entered within the listing price input**
+
+- **Figure out a solution to force users connect their wallet after opening the website**
+
 ************************************************
 Priorities:
 - **(1) Dedicated Gateway**
