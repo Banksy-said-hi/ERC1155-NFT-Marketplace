@@ -78,6 +78,7 @@ Auction phase:
 ************************************************
 Technichal Questions ???? 
 
+- What are Block elements in CSS and HTML?
 - **GIT Crash course**
 - **What useDebounce( ) does on our script?**
 - **useReducer**
