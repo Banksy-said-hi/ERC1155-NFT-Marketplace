@@ -82,7 +82,6 @@ Technichal Questions ????
 - **GIT Crash course**
 - **What useDebounce( ) does on our script?**
 - **useReducer**
-- What does **.jsx ending** means in files?
 - What is the nonce of the accounts? It must be related to the transactions made by single account
 - Difference between import, require, fs.readfilesync? Why using brackets for importing?
 - What is bytes32? What are its usecases?
