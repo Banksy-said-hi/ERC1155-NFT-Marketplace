@@ -36,7 +36,6 @@ Things to think about !!!!
 Priorities:
 - **(1) Dedicated Gateway**
 - **(2) Tether based payments on Polygon**
-- **(3) ERC721 NFT creation and listing support**
 - **(4) Staking or a similiar solution for reward distribution**
 
 ************************************************
