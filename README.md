@@ -18,8 +18,6 @@ Things to think about !!!!
 
 - You have enabled experimental feature (appDir) in next.config.js. **What is this statement?** resolve it
 
-- subphase 3 ( buying ) 6 hours March 1st + 3 hours March 2nd + 
-
 - Put external variables (drop down values) in another file, Implement alphebatic order on drop down
 
 - **Add wallet connect warning to _App.js** to ask users to connect wallets at the start
@@ -75,17 +73,6 @@ Auction phase:
 
 
 ************************************************
-Technichal Questions ???? 
 
-- What are Block elements in CSS and HTML?
-- **GIT Crash course**
-- **What useDebounce( ) does on our script?**
-- **useReducer**
-- What is the nonce of the accounts? It must be related to the transactions made by single account
-- Difference between import, require, fs.readfilesync? 
-- What is bytes32? What are its usecases?
-- parseUnit( ) and fotmatUnit( ) definition and usecase?
-- How to read data from solidity emitted events?
-- Why the provided value for a solidity transaction in JS should be string? READ MORE ABOUT ETHERS.JS TRANSACTIONS
 
 
