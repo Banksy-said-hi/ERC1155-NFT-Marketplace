@@ -30,6 +30,10 @@ Things to think about !!!!
 
 - **Figure out a solution to force users connect their wallet after opening the website**
 
+- **What is hydrating in Nextjs projects?**
+
+- **Watch some video around "How to develop a ERC1155 marketplace" to fix the bug of marketplace ( second time listing a token ), Take a deep look at their smart contracts **
+
 ************************************************
 Priorities:
 - **(1) Dedicated Gateway**
