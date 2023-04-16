@@ -1,7 +1,8 @@
 // Contract addresses
 export const f_nftaddress_polygon = '0xface2fc3bcd23d32c8227a16bc4137edcd357ad3'
-export const f_nftaddress_mumbai = '0x742D959001a438728FAb520757Ccb6361e35A76e'
-export const marketplace_mumbai = '0x146e0dD1672FBB3eD7f9d425bfD56009550f62A9'
+
+export const f_nftaddress_mumbai = '0x199EB30A96d3Aac29Db0dd0074966Eb667Fbee7d'
+export const marketplace_mumbai = '0x0050d77645FF7C55FB616330b9fAa4c254c60fbD'
 
 // Combobox options
 export const fields = [

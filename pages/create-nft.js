@@ -26,6 +26,14 @@ const client = create({
     },
 });
 
+// console.log(client)
+// Use the api keys by providing the strings directly 
+
+// const pinataSDK = require('@pinata/sdk');
+// const pinata = new pinataSDK("37bdb442e8a836efbfd9", "685fe5cb04ac9363a7e2fc3d3cd2f793da6edb3679628f2a4f16884138ab1a57");
+
+// console.log(pinata);
+
 
 
 export default function CreateNFT () {
@@ -85,10 +93,12 @@ export default function CreateNFT () {
             const added = await client.add(file, {
                 progress: (prog) => console.log(`received: ${prog}`)
             })
-            const url = `https://infura-ipfs.io/ipfs/${added.path}`
+            console.log(added);
+            const url = `https://sina.infura-ipfs.io/ipfs/${added.path}`;
+            // const url = `https://ipfs.infura.io:5001/${added.path}`
             console.log(`Image's URL: \n\n ${url}`);
-
             setImageUrl(url);
+            console.log("Picture successfully pinned");
         } catch (e) {
             console.log("Error Happened: \n\n", e);
         }

@@ -40,18 +40,17 @@ export const NFTCard = ({nft}) => {
     })
 
 
-
     return (        
             <div className="w-1/5 flex flex-col py-2">
                 { router.pathname == "/" && 
                 <div className='flex w-full'>
                     <div className='w-1/2 bg-teal-300 rounded-t-md flex items-center justify-center py-1'>
-                        <p className="text-xl text-white">{nft.amount}</p>
-                        <p className='text-xs text-white pl-1'>tokens for sale</p>
+                        <p className="text-l text-white">{nft.amount}</p>
+                        <p className='text-xs text-white pl-1'>tokens</p>
                     </div>
                     <div className='w-1/2 bg-teal-300 rounded-t-md flex items-center justify-center py-1'>
-                        <p className="text-xl text-white">{nft.amount}</p>
-                        <p className='text-xs text-white pl-1'>Matic per token</p>
+                        <p className="text-l text-white">{price}</p>
+                        <p className='text-xs text-white pl-1'>Matic</p>
                     </div>
                 </div>               
                 }
