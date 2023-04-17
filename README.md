@@ -34,6 +34,8 @@ Things to think about !!!!
 
 - **Watch some video around "How to develop a ERC1155 marketplace" to fix the bug of marketplace ( second time listing a token ), Take a deep look at their smart contracts **
 
+- Thirdweb3
+
 ************************************************
 Priorities:
 - **(1) Dedicated Gateway**
